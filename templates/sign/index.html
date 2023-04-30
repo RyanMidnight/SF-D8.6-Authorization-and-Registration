@@ -1,0 +1,15 @@
+{% extends 'sign/main.html' %}
+
+{% block content %}
+    <h2>You are logged in as '{{ request.user.username }}'</h2>
+    <hr>
+    <div>Personal information:</div>
+    <h3>First name: '{{ request.user.first_name }}'</h3>
+    <h3>Last name: '{{ request.user.last_name }}'</h3>
+    <h3>Email: '{{ request.user.email }}'</h3>
+    <hr>
+    <button><a href="sign/logout/">Log out</a></button>
+    {% if is_not_author %}
+    <button><a href="sign/upgrade/">Become an author</a></button>
+    {% endif %}
+{% endblock content %}
